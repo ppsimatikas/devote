@@ -1,0 +1,16 @@
+.header {
+ background-color: #ffffff;
+ color: white;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ padding: 10px 0;
+}
+
+.logo {
+ position: absolute;
+ top: -5px;
+ left: 20px;
+}
+
+.container {
+ position: relative;
+}
