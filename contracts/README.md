@@ -17,5 +17,5 @@ yarn deploy:local
 ## Deploy on optimism
 
 ```shell
-yarn deploy
+yarn deploy:optimism:devnet
 ```

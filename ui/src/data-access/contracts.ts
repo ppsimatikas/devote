@@ -27,9 +27,7 @@ export function useCandidates() {
 
 function votesToData(votes: any[]) {
     return votes.reduce((stateVotes, state: any) => {
-        console.log(state.state);
         stateVotes[state.state] = state.votes.reduce((votes: any, party: any) => {
-            console.log(party.candidate, party.votes);
             votes[party.candidate] = Number(party.votes);
             return votes;
         }, {} as any);

@@ -4,6 +4,7 @@ import {WorldIdConnect} from "../components/WorldIdConnect";
 import {useUiBreakpoints} from "../utils/use-ui-breakpoints";
 import styles from './Home.module.css';
 import {UiLoader} from "../components/loader";
+import {toastSuccess} from "../components/ui-toast";
 
 function shuffle<T>(array: T[]): T[] {
     const shuffledArray = [...array];
@@ -28,7 +29,7 @@ function Home() {
             <WorldIdConnect
                 key={c.title}
                 candidate={c}
-                onSuccess={console.log} // callback when the modal is closed
+                onSuccess={() => toastSuccess("Thank you for voting in the 2024 US Elections!")}
             >
                 <Card
                     className={styles.card}

@@ -15,12 +15,6 @@ Revolutionizing Voting: Safe, Transparent, and Effortless!
 2. Use correct node version in `.nvmrc` or run `nvm use`
 3. Install yarn: `npm install -g yarn`
 4. Install libraries: `yarn`
-5. Backend
-    1. `cd backend`
-    2. Use another version of node: `nvm use`
-    3. Install yarn: `npm install -g yarn`
-    4. Install dependencies: `yarn`
-    5. Build: `yarn build`
 
 ### Start the Application
 
@@ -28,8 +22,9 @@ Revolutionizing Voting: Safe, Transparent, and Effortless!
 
 Or you can run the UI and Backend separately:
 
-1. Start the backend: `yarn start:backend`
-2. Start the frontend: `yarn start:ui`
+1. Start the contracts: `yarn start:contracts`
+2. Start the backend: `yarn start:backend`
+3. Start the frontend: `yarn start:ui`
 
 ### Accessing the application
 
@@ -67,8 +62,7 @@ Every merge on the main branch will automatically deploy the application into fi
 1. `cd backend`
 2. Create a `.env` file with these values:
    1. `MASTER_WALLET_PK={A WALLET PRIVATE KEY TO APPLY THE VOTES ON CHAIN}`
-3. `nvm use`
-4. `yarn deploy`
+3. `yarn deploy`
 
 ### Frontend
 

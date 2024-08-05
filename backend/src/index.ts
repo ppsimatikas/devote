@@ -11,10 +11,10 @@ import {onRequest} from "firebase-functions/v2/https";
 import {verify} from "./worldId";
 import {voteOnContract} from "./contract";
 
+const isEmulator = process.env.FUNCTIONS_EMULATOR === "true";
+const cors = isEmulator ? "*" : [/devote\.world/, "devote.world"];
 
-export const vote = onRequest({
-  cors: [/devote\.world/, "devote.world"],
-}, async (request, response) => {
+export const vote = onRequest({cors}, async (request, response) => {
   const {candidate, proof} = request.body;
 
   const verifyError = await verify(proof);

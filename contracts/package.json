@@ -6,7 +6,9 @@
     "test": "REPORT_GAS=true npx hardhat test",
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat ignition deploy ignition/modules/DeVote.ts",
-    "start:local": "npx hardhat node",
+    "start:node": "npx hardhat node",
+    "wait": "node scripts/wait_for_local_rpc.js",
+    "start": "concurrently \"yarn start:node\" \"yarn wait && yarn deploy:local\"",
     "copy": "node scripts/post_deploy.js",
     "deploy:local": "yarn deploy --network localhost && yarn copy 31337",
     "deploy:optimism:devnet": "yarn deploy --network optimismDevnet && yarn copy 11155420"
@@ -25,7 +27,6 @@
     "@typechain/ethers-v6": "^0.5.0",
     "@typechain/hardhat": "^9.0.0",
     "@types/chai": "^4.2.0",
-    "@types/mocha": ">=9.1.0",
     "@types/node": ">=18.0.0",
     "chai": "^4.2.0",
     "ethers": "^6.4.0",
@@ -34,9 +35,8 @@
     "solidity-coverage": "^0.8.0",
     "ts-node": ">=8.0.0",
     "typechain": "^8.3.0",
-    "typescript": ">=4.5.0"
-  },
-  "dependencies": {
+    "typescript": ">=4.5.0",
+    "concurrently": "^8.2.2",
     "dotenv": "^16.4.5"
   }
 }

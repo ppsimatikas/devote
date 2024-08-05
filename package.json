@@ -5,14 +5,18 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
+    "contracts",
+    "backend",
     "ui"
   ],
   "scripts": {
+    "build:backend": "yarn workspace backend run build",
     "build:ui": "yarn workspace ui run build",
-    "build": "yarn build:ui",
+    "build": "yarn build:ui && yarn build:backend",
     "start:ui": "yarn workspace ui run start",
     "start:backend": "firebase emulators:start",
-    "start": "yarn start:backend & yarn start:ui"
+    "start:contracts": "yarn workspace contracts run start",
+    "start": "concurrently \"yarn start:contracts\" \"yarn start:backend\" \"yarn start:ui\""
   },
   "dependencies": {
     "firebase-tools": "^13.13.2"

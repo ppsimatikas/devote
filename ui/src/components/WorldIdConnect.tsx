@@ -2,6 +2,7 @@ import {IDKitWidget, ISuccessResult, VerificationLevel} from "@worldcoin/idkit";
 import {Children, cloneElement} from "react";
 import {Candidate} from "../data/candidates";
 import {vote} from "../data-access/vote";
+import {toastError} from "./ui-toast";
 
 export function WorldIdConnect({candidate, children, onSuccess}: { candidate: Candidate, children: any, onSuccess: (c: any) => void }) {
     const handleVerify = async (proof: ISuccessResult) => {
@@ -16,6 +17,7 @@ export function WorldIdConnect({candidate, children, onSuccess}: { candidate: Ca
             action="devote" // obtained from the Developer Portal
             onSuccess={onSuccess} // callback when the modal is closed
             handleVerify={handleVerify} // callback when the proof is received
+            onError={(e) => toastError(e?.message ?? 'An error occurred, please try again later.')}
             verification_level={VerificationLevel.Orb}
         >
             {({open}) => Children.map(children, child =>
