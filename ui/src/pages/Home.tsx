@@ -15,36 +15,36 @@ function shuffle<T>(array: T[]): T[] {
 }
 
 function Home() {
-    const { data: parties, isLoading } = useCandidates();
+    const { data: candidates, isLoading } = useCandidates();
 
     const {isSm} = useUiBreakpoints();
 
     function renderCards() {
-        if (!parties) {
+        if (!candidates) {
             return null;
         }
 
-        return shuffle(parties).map((p) => (
+        return shuffle(candidates).map((c) => (
             <WorldIdConnect
-                key={p.title}
-                party={p}
+                key={c.title}
+                candidate={c}
                 onSuccess={console.log} // callback when the modal is closed
             >
                 <Card
                     className={styles.card}
-                    bg={p.color}
+                    bg={c.color}
                     w={!isSm ? "calc(50% - 15px)" : undefined}
                     c="white"
                     radius="lg"
                 >
                     <Stack>
-                        <Title>{p.title}</Title>
+                        <Title>{c.title}</Title>
                         <img
-                            src={p.image}
-                            alt={p.title}
+                            src={c.image}
+                            alt={c.title}
                             style={{height: '500px', objectFit: 'cover', width: '100%'}}
                         />
-                        <Button size="xl" radius="md" variant="white" c={p.color}>Vote {p.title} Now !</Button>
+                        <Button size="xl" radius="md" variant="white" c={c.color}>Vote {c.title} Now !</Button>
                     </Stack>
                 </Card>
             </WorldIdConnect>

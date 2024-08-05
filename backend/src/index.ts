@@ -8,20 +8,24 @@
  */
 
 import {onRequest} from "firebase-functions/v2/https";
-import {ethers} from "ethers";
-import {abi, contractAddress} from "./data/contract_details";
+import {verify} from "./worldId";
+import {voteOnContract} from "./contract";
 
-const provider = new ethers.JsonRpcProvider(process.env.RPC_ENDPOINT);
 
-export const helloWorld = onRequest(async (request, response) => {
-  if (!process.env.MASTER_WALLET_PK) {
-    response.status(500).send({
-      "error": "set the MASTER_WALLET_PK environment variable",
-    });
+export const vote = onRequest({
+  cors: "*",
+  // cors: [/demeterai\.xyz$/, "demeterai.xyz"],
+}, async (request, response) => {
+  const {candidate, proof} = request.body;
+
+  const verifyError = await verify(proof);
+
+  if (verifyError) {
+    response.status(401).send(verifyError);
     return;
   }
 
-  const contract = new ethers.Contract(contractAddress, abi, provider);
+  await voteOnContract(proof.nullifier_hash, candidate.title, "IL");
 
-  response.send(await contract.getCandidates());
+  response.send({"message": "vote successful"});
 });

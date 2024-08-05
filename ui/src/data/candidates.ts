@@ -1,6 +1,12 @@
 import {blueColor, redColor} from "../theme";
 
-export const parties = [
+export interface Candidate {
+    color: string;
+    title: string;
+    image: string;
+}
+
+export const candidates: Candidate[] = [
     {
         color: redColor,
         title: "Republicans",
