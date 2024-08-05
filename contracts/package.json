@@ -6,6 +6,7 @@
     "test": "REPORT_GAS=true npx hardhat test",
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat ignition deploy ignition/modules/DeVote.ts",
+    "start:local": "npx hardhat node",
     "deploy:local": "yarn deploy --network localhost"
   },
   "author": "",
