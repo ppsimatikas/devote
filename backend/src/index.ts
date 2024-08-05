@@ -13,8 +13,7 @@ import {voteOnContract} from "./contract";
 
 
 export const vote = onRequest({
-  cors: "*",
-  // cors: [/demeterai\.xyz$/, "demeterai.xyz"],
+  cors: [/devote\.world/, "devote.world"],
 }, async (request, response) => {
   const {candidate, proof} = request.body;
 
@@ -25,7 +24,7 @@ export const vote = onRequest({
     return;
   }
 
-  await voteOnContract(proof.nullifier_hash, candidate.title, "IL");
-
-  response.send({"message": "vote successful"});
+  voteOnContract(proof.nullifier_hash, candidate.title, "IL")
+    .then(() => response.send({"message": "vote successful"}))
+    .catch(() => response.status(401).send("unable to vote"));
 });

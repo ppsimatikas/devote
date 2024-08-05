@@ -7,7 +7,9 @@
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat ignition deploy ignition/modules/DeVote.ts",
     "start:local": "npx hardhat node",
-    "deploy:local": "yarn deploy --network localhost && node scripts/post_deploy.js"
+    "copy": "node scripts/post_deploy.js",
+    "deploy:local": "yarn deploy --network localhost && yarn copy 31337",
+    "deploy:optimism:devnet": "yarn deploy --network optimismDevnet && yarn copy 11155420"
   },
   "author": "",
   "license": "ISC",
@@ -33,5 +35,8 @@
     "ts-node": ">=8.0.0",
     "typechain": "^8.3.0",
     "typescript": ">=4.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }

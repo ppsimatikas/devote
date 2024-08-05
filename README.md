@@ -43,3 +43,34 @@ You access the different parts of the APP:
 
 This project is using CI/CD pipelines to deploy on Firebase cloud.
 Every merge on the main branch will automatically deploy the application into firebase.
+
+### Contracts
+
+#### Deploy on local
+
+1 cmd tab
+1. cd `contracts`
+2. `yarn start:local` starts a local chain
+
+2 cmd tab
+1. cd `contracts`
+2. `yarn deploy:local` deploys on local chain
+
+#### Deploy on Optimism Devnet
+
+1. cd `contracts`
+2. Create a `.env` file with this value: `OPTIMISM_SEPOLIA_PRIVATE_KEY={YOUR_OPTIMISM_SEPOLIA_WALLET}`
+3. `yarn deploy:optimism:devnet` starts a local chain
+
+### Backend
+
+1. `cd backend`
+2. Create a `.env` file with these values:
+   1. `MASTER_WALLET_PK={A WALLET PRIVATE KEY TO APPLY THE VOTES ON CHAIN}`
+3. `nvm use`
+4. `yarn deploy`
+
+### Frontend
+
+1. `nvm use`
+2. `firebase deploy --only hosting`

@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:5001/devote-ba3e8/us-central1/path'
+import {API_URL} from "../config";
 
 function getUrl(path: string, params: any = {}) {
     const url = new URL(`${API_URL.replace("path", path)}`)
