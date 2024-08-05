@@ -30,7 +30,7 @@ contract DeVote {
     constructor(string[] memory candidateNames, string[] memory stateList) {
         candidates = candidateNames;
         for (uint8 i = 0; i < candidateNames.length; i++) {
-            candidateIndices[candidateNames[i]] = i;
+            candidateIndices[candidateNames[i]] = i + 1;
         }
         states = stateList;
 
@@ -43,9 +43,9 @@ contract DeVote {
 
     function vote(string memory userId, string memory candidateName, string memory state) public {
         require(!hasVoted[userId], "You have already voted.");
-        require(candidateIndices[candidateName] < candidates.length, "Invalid candidate name.");
+        require(candidateIndices[candidateName] > 0, "Invalid candidate name.");
 
-        uint8 candidateIndex = candidateIndices[candidateName];
+        uint8 candidateIndex = candidateIndices[candidateName] - 1;
 
         hasVoted[userId] = true;
         stateVotes[state].votesPerCandidate[candidateIndex] += 1;

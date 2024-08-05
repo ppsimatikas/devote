@@ -6,7 +6,13 @@ const config: HardhatUserConfig = {
   networks: {
     localhost: {
       url: "http://127.0.0.1:8545"
-    }
+    },
+    optimismDevnet: {
+      url: "https://sepolia.optimism.io"
+    },
+    optimism: {
+      url: "https://mainnet.optimism.io"
+    },
   }
 };
 
