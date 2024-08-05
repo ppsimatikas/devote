@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const {abi} = require('./artifacts/contracts/DeVote.sol/DeVote.json');
-const addresses = require('./ignition/deployments/chain-31337/deployed_addresses.json');
+const {abi} = require('../artifacts/contracts/DeVote.sol/DeVote.json');
+const addresses = require('../ignition/deployments/chain-31337/deployed_addresses.json');
 
 const uiFilePath = '../ui/src/data/contract_details.ts'
 const beFilePath = '../backend/src/data/contract_details.ts'

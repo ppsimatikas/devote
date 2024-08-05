@@ -7,7 +7,7 @@
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat ignition deploy ignition/modules/DeVote.ts",
     "start:local": "npx hardhat node",
-    "deploy:local": "yarn deploy --network localhost && node ./post_deploy.js"
+    "deploy:local": "yarn deploy --network localhost && node scripts/post_deploy.js"
   },
   "author": "",
   "license": "ISC",

@@ -10,3 +10,7 @@ function getContract() {
 export function getCandidates(): Promise<string[]> {
     return getContract().getCandidates()
 }
+
+export function getVotes(): Promise<any[]> {
+    return getContract().getVotes()
+}

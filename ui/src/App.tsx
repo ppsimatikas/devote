@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import {Outlet, Route, Routes} from "react-router-dom";
 import NoMatch from "./pages/NoMatch";
 import Home from "./pages/Home";

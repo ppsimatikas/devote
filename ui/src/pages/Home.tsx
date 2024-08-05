@@ -38,7 +38,7 @@ function Home() {
                     radius="lg"
                 >
                     <Stack>
-                        <Title>{c.title}</Title>
+                        <Title ta="center">{c.title}</Title>
                         <img
                             src={c.image}
                             alt={c.title}

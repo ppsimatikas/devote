@@ -42,7 +42,7 @@ contract DeVote {
     }
 
     function vote(string memory userId, string memory candidateName, string memory state) public {
-        require(hasVoted[userId], "You have already voted.");
+        require(!hasVoted[userId], "You have already voted.");
         require(candidateIndices[candidateName] < candidates.length, "Invalid candidate name.");
 
         uint8 candidateIndex = candidateIndices[candidateName];

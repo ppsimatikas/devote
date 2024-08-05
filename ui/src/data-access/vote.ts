@@ -8,6 +8,6 @@ export async function vote(candidate: Candidate, proof: ISuccessResult) {
         candidate
     });
     if (!res.ok) {
-        throw new Error("You have already voted. You can only vote once.");
+        throw new Error("You have already voted.");
     }
 }
