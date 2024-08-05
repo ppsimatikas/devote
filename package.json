@@ -14,7 +14,7 @@
     "build:ui": "yarn workspace ui run build",
     "build": "yarn build:ui && yarn build:backend",
     "start:ui": "yarn workspace ui run start",
-    "start:backend": "firebase emulators:start",
+    "start:backend": "concurrently \"yarn workspace backend run build:watch\" \"firebase emulators:start\"",
     "start:contracts": "yarn workspace contracts run start",
     "start": "concurrently \"yarn start:contracts\" \"yarn start:backend\" \"yarn start:ui\""
   },

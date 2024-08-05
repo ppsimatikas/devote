@@ -15,7 +15,7 @@ const isEmulator = process.env.FUNCTIONS_EMULATOR === "true";
 const cors = isEmulator ? "*" : [/devote\.world/, "devote.world"];
 
 export const vote = onRequest({cors}, async (request, response) => {
-  const {candidate, proof} = request.body;
+  const {candidate, proof, state} = request.body;
 
   const verifyError = await verify(proof);
 
@@ -24,7 +24,7 @@ export const vote = onRequest({cors}, async (request, response) => {
     return;
   }
 
-  voteOnContract(proof.nullifier_hash, candidate.title, "IL")
+  voteOnContract(proof.nullifier_hash, candidate.title, state)
     .then(() => response.send({"message": "vote successful"}))
     .catch(() => response.status(401).send("unable to vote"));
 });
