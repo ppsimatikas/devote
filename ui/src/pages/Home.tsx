@@ -1,21 +1,25 @@
 import {Stack} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {ethers} from "ethers";
+import {abi, contractAddress} from "../data/contract_details";
 
 
 function Home() {
-    const [ message, setMessage ] = useState<string>('');
+    const [ message, setMessage ] = useState<any>(null);
 
-    const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
-    const contractABI = [
-        "function message() public view returns (string)"
-    ];
     const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545/");
 
     useEffect(() => {
-        const contract = new ethers.Contract(contractAddress, contractABI, provider);
-        contract.message().then(setMessage);
+        const contract = new ethers.Contract(contractAddress, abi, provider);
+        contract.getVotes().then(setMessage);
     }, []);
+
+    if (message) {
+        console.log(message[0].state);
+        console.log(message[0].votes[0].candidate);
+        console.log(message[0].votes[0].votes);
+
+    }
 
     return (
         <Stack>
