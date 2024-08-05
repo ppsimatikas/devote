@@ -1,4 +1,4 @@
-import {Center, Stack} from "@mantine/core";
+import {Stack, Title} from "@mantine/core";
 import {useEffect, useRef, useState} from "react";
 import {ResultsGlobe} from "../components/map/ResultsGlobe";
 import {useResults} from "../data-access/contracts";
@@ -18,9 +18,7 @@ function Results() {
 
     return (
         <Stack ref={ref}>
-            <Center>
-                <h1>2024 U.S. Election Results</h1>
-            </Center>
+            <Title ta="center" size="4vw">2024 U.S. Election Results</Title>
             {isLoading && <UiLoader/>}
             {data && <ResultsBar data={data}/>}
             {width && data && <ResultsGlobe width={width} data={data} />}

@@ -1,4 +1,4 @@
-import {Button, Card, Center, Group, Stack, Title} from "@mantine/core";
+import {Button, Card, Group, Stack, Title} from "@mantine/core";
 import {useCandidates} from "../data-access/contracts";
 import {WorldIdConnect} from "../components/WorldIdConnect";
 import {useUiBreakpoints} from "../utils/use-ui-breakpoints";
@@ -48,9 +48,7 @@ function Home() {
 
     return (
         <Stack>
-            <Center>
-                <h1>Vote for the 2024 U.S. elections</h1>
-            </Center>
+            <Title ta="center" size="4vw">Vote for the 2024 U.S. elections</Title>
             {isLoading && <UiLoader/>}
             {
                 isSm ?

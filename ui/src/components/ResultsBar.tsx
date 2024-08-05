@@ -31,10 +31,10 @@ export function ResultsBar({data}: { data: any }) {
 
     return (
         <Stack gap={5}>
-            <Group justify="space-between">
-                <Text c="blue" fw="bold" size="30px">Democrats</Text>
-                <Text c="grey">270 to win</Text>
-                <Text c="red" fw="bold" size="30px">Republicans</Text>
+            <Group justify="space-between" mb={5}>
+                <Text c="blue" fw="bold" size="2.5vw">Democrats</Text>
+                <Text c="grey" size="2.5vw">270 to win</Text>
+                <Text c="red" fw="bold" size="2.5vw">Republicans</Text>
             </Group>
             <Group gap={0} style={{
                 position: "relative",
@@ -43,7 +43,7 @@ export function ResultsBar({data}: { data: any }) {
                     style={{
                         position: "absolute",
                         width: '2px',
-                        height: '33px',
+                        height: '30px',
                         backgroundColor: 'grey',
                         margin: 'auto',
                         left: 0,
