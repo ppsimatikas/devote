@@ -48,7 +48,7 @@ function Home() {
 
     return (
         <Stack>
-            <Title ta="center" size="4vw">Vote for the 2024 U.S. elections</Title>
+            <Title ta="center" size={isSm ? "6vw" : "45px"}>Vote for the 2024 U.S. elections</Title>
             {isLoading && <UiLoader/>}
             {
                 isSm ?

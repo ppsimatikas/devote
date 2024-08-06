@@ -2,6 +2,7 @@ import {Box, Group, Stack, Text} from "@mantine/core";
 import states from "../data/states.json";
 import {blueColor, redColor} from "../theme";
 import {Explanation} from "./Explanation";
+import {useUiBreakpoints} from "../utils/use-ui-breakpoints";
 
 function getResults(party: string, against: string, data: any): [number, number, number] {
     const allEvs = states.features.reduce((evs, state: any) => evs + state.properties.electoralVotes, 0)
@@ -24,17 +25,21 @@ function getPercentage(numbers: number[], num: number): number {
 }
 
 export function ResultsBar({data}: { data: any }) {
+    const {isSm} = useUiBreakpoints();
+
     const [democratEV, democratEVPerc, allDemocratVotes] = getResults('Democrats', 'Republicans', data)
     const [republicanEV, republicanEVPerc, allRepublicanVotes] = getResults('Republicans', 'Democrats', data)
 
     const remainingPerc = Math.max(100 - (democratEVPerc + republicanEVPerc), 0)
 
+    const size = isSm ? "4.5vw" : "30px";
+
     return (
         <Stack gap={5}>
             <Group justify="space-between" mb={5}>
-                <Text c="blue" fw="bold" size="2.5vw">Democrats</Text>
-                <Text c="grey" size="2.5vw">270 to win</Text>
-                <Text c="red" fw="bold" size="2.5vw">Republicans</Text>
+                <Text c="blue" fw="bold" size={size}>Democrats</Text>
+                <Text c="grey" size={size}>270 to win</Text>
+                <Text c="red" fw="bold" size={size}>Republicans</Text>
             </Group>
             <Group gap={0} style={{
                 position: "relative",
