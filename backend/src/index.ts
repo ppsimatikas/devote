@@ -14,7 +14,7 @@ import {voteOnContract} from "./contract";
 const isEmulator = process.env.FUNCTIONS_EMULATOR === "true";
 const cors = isEmulator ? "*" : [/devote\.world/, "devote.world"];
 
-export const vote = onRequest({cors}, async (request, response) => {
+export const vote = onRequest({cors, invoker: "public"}, async (request, response) => {
   const {candidate, proof, state} = request.body;
 
   const verifyError = await verify(proof);
