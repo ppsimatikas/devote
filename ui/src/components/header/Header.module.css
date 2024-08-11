@@ -8,7 +8,13 @@
 .logo {
  position: absolute;
  top: -5px;
- left: 20px;
+ left: 10px;
+}
+
+.about {
+ position: absolute;
+ top: 10px;
+ right: 10px;
 }
 
 .container {
