@@ -63,11 +63,11 @@ export function ResultsBar({data}: { data: any }) {
             <Group justify="space-between">
                 <Group>
                     <Text fw="bold">{getPercentage([allDemocratVotes, allRepublicanVotes], allDemocratVotes).toFixed()}%</Text>
-                    <Text>{allDemocratVotes.toLocaleString()}</Text>
+                    <Text size="14px">{allDemocratVotes.toLocaleString()}</Text>
                 </Group>
                 <Explanation/>
                 <Group>
-                    <Text>{allRepublicanVotes.toLocaleString()}</Text>
+                    <Text size="14px">{allRepublicanVotes.toLocaleString()}</Text>
                     <Text fw="bold">{getPercentage([allDemocratVotes, allRepublicanVotes], allRepublicanVotes).toFixed()}%</Text>
                 </Group>
             </Group>

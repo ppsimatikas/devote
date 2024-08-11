@@ -7,9 +7,9 @@ export function Explanation() {
     return (
         <Popover position="bottom" withArrow shadow="xl" opened={opened}>
             <Popover.Target>
-                <Group align="center" gap={5}>
+                <Group align="center" gap={4}>
                     <IconInfoCircleFilled size={18} color="grey" />
-                    <Text c="dimmed" onMouseEnter={open} onMouseLeave={close}>
+                    <Text c="dimmed" size="16px" onMouseEnter={open} onMouseLeave={close}>
                         What is this?
                     </Text>
                 </Group>

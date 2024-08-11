@@ -3,6 +3,10 @@
 Welcome to DeVote, a Decentralized Voting App.
 Revolutionizing Voting: Safe, Transparent, and Effortless!
 
+## Architecture
+
+![architecture.png](./assets/architecture.png)
+
 ## Prerequisites
 
 1. Nvm installed on the machine, or Node version v21.1.0 (inside the .nvmrc file)
